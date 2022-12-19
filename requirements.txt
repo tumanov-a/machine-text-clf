@@ -1,0 +1,5 @@
+transformers==4.20.1
+torch==1.13.0
+flask
+numpy
+gunicorn

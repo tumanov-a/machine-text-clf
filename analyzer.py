@@ -2,13 +2,16 @@ import torch
 import numpy as np
 from transformers import BertTokenizer
 
-from utils.clf import *
+import sys
+sys.path.append('utils')
+from clf import *
 
 class Analyzer():
     def __init__(self, weights_path):
         self.device = torch.device('cpu' if not torch.cuda.is_available() else 'cuda')
         self.model = BertCLF(hidden_neurons=512)
-        self.model.load_state_dict(torch.load(weights_path)).to(self.device).eval()
+        self.model.load_state_dict(torch.load(weights_path))
+        self.model.to(self.device).eval()
         self.tokenizer = BertTokenizer.from_pretrained('DeepPavlov/rubert-base-cased')
 
     def predict_label(self, text):

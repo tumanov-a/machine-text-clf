@@ -1,0 +1,22 @@
+{
+  "name": "machine-text-clf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tumanov-a/machine-text-clf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tumanov-a/machine-text-clf/issues"
+  },
+  "homepage": "https://github.com/tumanov-a/machine-text-clf#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}

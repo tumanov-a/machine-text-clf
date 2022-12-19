@@ -1,7 +1,7 @@
-from Flask import App, render_template
+from flask import Flask, render_template
 from analyzer import Analyzer
 
-app = App(__name__)
+app = Flask(__name__)
 
 analyzer = Analyzer('checkpoints/bert_model_0_1.pt')
 

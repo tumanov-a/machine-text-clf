@@ -15,6 +15,17 @@ app.config['MYSQL_PORT'] = 5060
  
 mysql = MySQL(app)
 
+def create_database():
+    with app.app_context():
+        cur = mysql.connection.cursor()
+        cur.execute('''USE flask''')
+        cur.execute('''CREATE TABLE nlg_label (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        text TEXT,
+        label INT
+        )''')
+        mysql.connection.commit()
+
 @app.route('/')
 def tryit():
     return render_template('tryit.html')
@@ -30,12 +41,6 @@ def features():
 @app.route('/db')
 def db():
     cur = mysql.connection.cursor()
-    # cur.execute('''USE flask''')
-    # cur.execute('''CREATE TABLE nlg_label (
-    #     id INT PRIMARY KEY AUTO_INCREMENT,
-    #     text TEXT,
-    #     label iNT
-    # )''')
     s = cur.execute('''SELECT * FROM nlg_label''')
     rv = cur.fetchall()
     mysql.connection.commit()
@@ -60,19 +65,7 @@ def insert_label():
     cur = mysql.connection.cursor()
     cur.execute('''INSERT INTO nlg_label (text, label) VALUES(%s, %s)''', (text, label))  
     mysql.connection.commit()
-    # mysql.connection.close()
     return render_template('tryit.html')
-
-def create_database():
-    cur = mysql.connection.cursor()
-    cur.execute('''USE flask''')
-    cur.execute('''CREATE TABLE nlg_label (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        text TEXT,
-        label iNT
-    )''')  
-    mysql.connection.commit()
-    # mysql.connection.close()
 
 if __name__ == '__main__':
     create_database()

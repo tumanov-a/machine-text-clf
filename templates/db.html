@@ -37,6 +37,7 @@
       <div class="bg-light p-5 rounded">
         <h1>Database</h1>
         {% if db %}
+        <table>
         {% for row in db %}
         <tr>
           <td>{{ row[0] }}</td>
@@ -44,6 +45,7 @@
           <td>{{ row[2] }}</td>
         </tr>
         {% endfor %}
+        </table>
         {% endif %}
       </div>
     </main>

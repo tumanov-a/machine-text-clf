@@ -55,7 +55,7 @@
         <p class="lead">If you know the actual origin of the text, please help us improve our model by 
           adding your text with correct label to our database. Was the predicted label correct?
         </p>
-        <form method="POST" action="insert_label"></form>
+        <form method="POST" action="insert_label">
           <textarea style="display: none" type='text' name='text' rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           <textarea style="display: none" type='text' name='label' rows="5">{% if context %}{{context['label']}}{% endif %}</textarea>
           <button type="submit" name="insert_label_button" value="correct" class="btn btn-success" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>

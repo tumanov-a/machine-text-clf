@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>NLG Project</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-fixed/">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/navbar-top-fixed.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/about">About the project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Try it</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/">More about features</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container">
+        <div class="bg-light p-5 rounded">
+          <h1>More about the features</h1>
+          <p></p>
+          <p class="lead">For the project we extracted _ features based on previous studies and our observations from the dataset. All features can be divided into _ groups. 
+            Out of _ features, only _ proved to not be significant in the statistical tests. Here are some examples of the most prominent feautures that help distinguish AI generated text from a real one.
+            If you want to read more about the features and results of statistical texts, you can read our <a href="#" class="link-primary">paper</a>.
+          </p>
+        </div>
+
+    <hr class="featurette-divider">
+
+      <main class="container">
+      <!-- Feature desciprtion -->
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Average number of words in a sentence. <span class="text-muted">Avg feature.</span></h2>
+            <p class="lead">Both T-test and Mann-Whitneyu test have found significant difference in the mean values of Average number of words in a sentence for two classes.
+              Mean value for Human class is 20.7 and 17.9 for Machine class.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            <image href = "average_words.jpg" class="img-responsive"/>
+            </svg>
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Verbs.<span class="text-muted">Morphological feature.</span></h2>
+            <p class="lead">As grammar form, verbs in data are also found to be a significantly important feature.
+              Though classes' means do not differ much, 0.090 for Human and 0.089 for Machine, the difference is still significant, as p-value is less than 0.05 in cases of both statistical tests
+            </p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            <image href = "verbs.jpg" class="img-responsive"/>
+            </svg>
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Density of punctuation symbols. <span class="text-muted">Frequency feature.</span></h2>
+            <p class="lead">An example of a significant frequency feature. For Human and Machine class the means are 0.031 and 0.28 respectively.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            <image href = "density.jpg" class="img-responsive"/>
+            </svg>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2022 Natural Language Generation, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+      </main>
+      <script src="static/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+  </html>
+  

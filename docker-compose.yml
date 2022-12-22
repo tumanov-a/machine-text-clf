@@ -1,0 +1,27 @@
+version: '2.3'
+
+services:
+  machine-text-clf:
+    restart: always
+    container_name: machine-text-clf
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: machine-text-clf:latest
+    runtime: nvidia
+    environment:
+      CUDA_VISIBLE_DEVICES: 1
+    volumes:
+      - .:/machine-text-clf
+    command: bash -c "gunicorn --bind 0.0.0.0:5020 app:app --timeout 15000 --reload"
+    network_mode: host
+  mysql:
+    image: mysql
+    restart: always
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234567890
+      MYSQL_DATABASE: flask
+      MYSQL_TCP_PORT: 5060
+      # ports:
+      #   3307:5060

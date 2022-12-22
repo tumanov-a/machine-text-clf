@@ -8,9 +8,9 @@ from clf import *
 
 class Analyzer():
     def __init__(self, weights_path):
-        self.device = torch.device('cpu' if not torch.cuda.is_available() else 'cuda')
+        self.device = torch.device('cpu' if not torch.cuda.is_available() else 'cuda:0')
         self.model = BertCLF(hidden_neurons=512)
-        self.model.load_state_dict(torch.load(weights_path))
+        self.model.load_state_dict(torch.load(weights_path, map_location=self.device))
         self.model.to(self.device).eval()
         self.tokenizer = BertTokenizer.from_pretrained('DeepPavlov/rubert-base-cased')
 
@@ -23,7 +23,7 @@ class Analyzer():
         pred_prob = pred_prob.detach().to('cpu').numpy()
         pred_label = np.where(pred_prob > 0.5, 1, 0)
         pred_label = 'Human' if pred_label == 0 else 'Machine'
-        return pred_label
+        return pred_label, round(pred_prob.item(), 2)
 
     def preprocess_text(self, text):
         tokens = self.tokenizer.tokenize('[CLS] ' + text[:512] + ' [SEP]')

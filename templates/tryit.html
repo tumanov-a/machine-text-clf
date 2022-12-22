@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>NLG Project</title>
+    <title>Try classifier | NLG Project</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-fixed/">
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,9 @@
             <li class="nav-item">
               <a class="nav-link active" href="/">Try it</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/db">Database</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -40,21 +43,24 @@
         <p></p>
         <form method="POST" action="predict_label">
           <div class="form-group">
-            <textarea class="form-control" id="text" type='text' name='text' placeholder="Write or copy your text here" rows="5"></textarea>
+            <textarea class="form-control" id="text" type='text' name='text' placeholder="Write or copy your text here" rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           </div>
           <input type="submit" class="btn btn-primary" value="Generate label">
         </form>
         <p></p>
         {% if context %}
         <p class="lead" id="here">Predicted label: <b>{{context['label']}}</b></p>
+        <p class="lead" id="here">Predicted prob: <b>{{context['prob']}}</b></p>
         {% endif %}
         <p class="lead">If you know the actual origin of the text, please help us improve our model by 
           adding your text with correct label to our database. Was the predicted label correct?
         </p>
-        <button type="button" class="btn btn-success" onclick=
-        'document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>
-        <button type="button" class="btn btn-danger" onclick=
-        'document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Incorrect</button>
+        <form method="POST" action="insert_label">
+          <textarea style="display: none" type='text' name='text' rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
+          <textarea style="display: none" type='text' name='label' rows="5">{% if context %}{{context['label']}}{% endif %}</textarea>
+          <button type="submit" name="insert_label_button" value="correct" class="btn btn-success" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>
+          <button type="submit" name="insert_label_button" value="incorrect" class="btn btn-danger" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Incorrect</button>
+        </form>
         <p></p>
         <p class="lead" id="gratitude"></p>
       </div>

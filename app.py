@@ -11,7 +11,7 @@ app.config['MYSQL_HOST'] = '0.0.0.0'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '1234567890'
 app.config['MYSQL_DB'] = 'flask'
-#app.config['MYSQL_PORT'] = 5060
+app.config['MYSQL_PORT'] = 5060
  
 mysql = MySQL(app)
 

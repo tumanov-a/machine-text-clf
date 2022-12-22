@@ -53,10 +53,9 @@ def insert_label():
     label = request.form['label']
     correct = request.form['insert_label_button']
     label = 0 if label == 'Human' else 1
-    if correct == 'correct':
-        label = label
-    elif correct == 'incorrect':
-        labels = [0, 1].pop(label)
+    if correct == 'incorrect':
+        labels = [0, 1]
+        labels.pop(label)
         label = labels[0]
     cur = mysql.connection.cursor()
     cur.execute('''INSERT INTO nlg_label (text, label) VALUES(%s, %s)''', (text, label))  

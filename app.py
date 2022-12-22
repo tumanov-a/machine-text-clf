@@ -50,13 +50,18 @@ def predict_label():
 @app.route('/insert_label', methods=['POST'])
 def insert_label():
     text = request.form['text']
+    print("request.form text: {}".format(text))
     label = request.form['label']
+    print("request.form label: {}".format(label))
     correct = request.form['insert_label_button']
+    print("correctness: {}".format(correct))
     label = 0 if label == 'Human' else 1
     if correct == 'correct':
+        print("+++ {}".format(label))
         label = label
     elif correct == 'incorrect':
         labels = [0, 1].pop(label)
+        print("+++ {}".format(labels))
         label = labels[0]
     cur = mysql.connection.cursor()
     cur.execute('''INSERT INTO nlg_label (text, label) VALUES(%s, %s)''', (text, label))  

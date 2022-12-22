@@ -23,6 +23,10 @@ def tryit():
 def about():
     return render_template('about.html')
 
+@app.route('/features')
+def features():
+    return render_template('features.html')
+
 @app.route('/db')
 def db():
     cur = mysql.connection.cursor()

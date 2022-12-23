@@ -11,7 +11,7 @@ app.config['MYSQL_HOST'] = '0.0.0.0'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '1234567890'
 app.config['MYSQL_DB'] = 'flask'
-#app.config['MYSQL_PORT'] = 5060
+app.config['MYSQL_PORT'] = 5060
  
 mysql = MySQL(app)
 
@@ -56,12 +56,9 @@ def insert_label():
     correct = request.form['insert_label_button']
     print("correctness: {}".format(correct))
     label = 0 if label == 'Human' else 1
-    if correct == 'correct':
-        print("+++ {}".format(label))
-        label = label
-    elif correct == 'incorrect':
-        labels = [0, 1].pop(label)
-        print("+++ {}".format(labels))
+    if correct == 'incorrect':
+        labels = [0, 1]
+        labels.pop(label)
         label = labels[0]
     cur = mysql.connection.cursor()
     cur.execute('''INSERT INTO nlg_label (text, label) VALUES(%s, %s)''', (text, label))  

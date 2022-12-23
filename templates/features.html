@@ -15,7 +15,7 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #D0E2FF">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -40,23 +40,40 @@
         <div class="bg-light p-5 rounded">
           <h1>More about the features</h1>
           <p></p>
-          <p class="lead">For the project we extracted _ features based on previous studies and our observations from the dataset. All features can be divided into _ groups. 
-            Out of _ features, only _ proved to not be significant in the statistical tests. Here are some examples of the most prominent feautures that help distinguish AI generated text from a real one.
-            If you want to read more about the features and results of statistical texts, you can read our <a href="#" class="link-primary">paper</a>.
+          <p class="lead">For the project we extracted <b>61 feature</b> based on previous studies and our observations from the dataset.</p>
+          <p class="lead">All features can be divided into 7 groups according to their targeted branch of linguistics or functionality:</p>
+            <ul>
+              <li>Descriptive metrics</li>
+              <li>Frequency features</li>
+              <li>Avg features</li>
+              <li>Morphological features:
+                <ul>
+                  <li>part of speech frequency</li>
+                  <li>grammar forms</li>
+                </ul>
+              </li>
+              <li>Lexical features which indicate lexical diversity of the text</li>
+              <li>Readability features</li>
+              <li>Cohesion features</li>
+            </ul>
+          <p class="lead">Out of all features, only <b>Adverbial participle</b> and <b>Numerals</b> proved to not be significant in Mann-Whitney statistical test;
+            <b>Density of unique words</b>, <b>Frequency (according to Sharov’s dictionary)</b> and <b>Prepositional case (Noun)</b> proved to not be significant in T-test.</p>
+          <p class="lead">Here are some examples of the most prominent features that help distinguish AI generated text from a real one.
+            If you want to read more about the features and results of the statistical texts, check out our <a href="https://drive.google.com/file/d/1zXxMC_IKgHtayF8P4Uc0FEn2_YGEs9CO/view?usp=sharing" class="link-primary">paper</a>.
           </p>
         </div>
 
       <main class="container">
-        <!-- Feature desciprtion -->
+        <!-- Feature desciption -->
           <div class="row featurette">
             <div class="col-md-7">
               <h2 class="featurette-heading">Average number of words in a sentence. <span class="text-muted">Avg feature.</span></h2>
-              <p class="lead">Both T-test and Mann-Whitneyu test have found significant difference in the mean values of Average number of words in a sentence for two classes.
-                Mean value for Human class is 20.7 and 17.9 for Machine class.
+              <p class="lead">Both T-test and Mann-Whitney U test have found significant difference in the mean values of <b>Average number of words in a sentence</b> for two classes.
+                Mean value for <code>Human</code> class is <code>20.7</code> and <code>17.9</code> for <code>Machine</code> class.
               </p>
             </div>
             <div class="col-md-5">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="607" height="499" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="607" height="499" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Average number of words in a sentence</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
               <image href = "static/img/average_words.jpg" class="img-responsive"/>
               </svg>
           </div>
@@ -65,13 +82,13 @@
         <hr class="featurette-divider">
           <div class="row featurette">
             <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Verbs.<span class="text-muted">Morphological feature.</span></h2>
-              <p class="lead">As grammar form, verbs in data are also found to be a significantly important feature.
-                Though classes' means do not differ much, 0.090 for Human and 0.089 for Machine, the difference is still significant, as p-value is less than 0.05 in cases of both statistical tests
+              <h2 class="featurette-heading">Verbs. <span class="text-muted">Morphological feature.</span></h2>
+              <p class="lead">As a part of speech, verbs in data are also found to be a significantly important feature.
+                Though classes' means do not differ much, <code>0.090</code> for <code>Human</code> and <code>0.089</code> for <code>Machine</code>, the difference is still significant, as p-value is less than <code>0.05</code> in cases of both statistical tests.
               </p>
             </div>
             <div class="col-md-5 order-md-1">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="529" height="459" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="529" height="459" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Verbs</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
               <image href = "static/img/verbs.jpg" class="img-responsive"/>
               </svg>
           </div>
@@ -79,12 +96,12 @@
     
         <hr class="featurette-divider">
           <div class="row featurette">
-            <div class="col-md-7 order-md-2">
+            <div class="col-md-7 order-md-1">
               <h2 class="featurette-heading">Density of punctuation symbols. <span class="text-muted">Frequency feature.</span></h2>
-              <p class="lead">An example of a significant frequency feature. For Human and Machine class the means are 0.031 and 0.28 respectively.</p>
+              <p class="lead">An example of a significant frequency feature. For <code>Human</code> and <code>Machine</code> class the means are <code>0.031</code> and <code>0.28</code> respectively.</p>
             </div>
-            <div class="col-md-5 order-md-1">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="540" height="453" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            <div class="col-md-5 order-md-2">
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="540" height="453" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Density of punctuation symbols</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
               <image href = "static/img/density.jpg" class="img-responsive"/>
               </svg>
           </div>

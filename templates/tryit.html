@@ -15,7 +15,7 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #D0E2FF">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -39,17 +39,25 @@
     <main class="container">
       <div class="bg-light p-5 rounded">
         <h1>Try it yourself!</h1>
-        <p></p>
-        <p class="lead">Get our model's prediction on your text.</p>
-        <p class="lead">If you don't have any generated text you can generate it on the <a target="blank" href="https://russiannlp.github.io/rugpt-demo/">link</a></p>
-        <p class="lead">Write or copy your text in the Input form below and click "Generate label"</p>
-
-        <p></p>
+        <h4>Get our model's prediction on your text.</h4>
+        <p class="lead">If you don't have any generated text, you can generate it on the <a target="blank" href="https://russiannlp.github.io/rugpt-demo/">link</a>.</p>
+        <p class="lead">Write or copy your text in the Input form below and click "Generate label".</p>
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+          <div>
+          <p class="lead"><b>Requirements:</b></p>
+            <ul>
+              <li>The text should be in Russian.</li>
+              <li>The length of the text should be 512 words or less.</li>
+            </ul>
+          </div>
+        </div>
         <form method="POST" action="predict_label">
           <div class="form-group">
             <textarea class="form-control" id="text" type='text' name='text' placeholder="Write or copy your text here" rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           </div>
-          <input type="submit" class="btn btn-primary" value="Generate label">
+          <p></p>
+          <input type="submit" class="btn btn-outline-primary" value="Generate label">
         </form>
         <p></p>
         {% if context %}
@@ -57,13 +65,15 @@
         <p class="lead" id="here">Predicted prob: <b>{{context['prob']}}</b></p>
         {% endif %}
         <p class="lead">If you know the actual origin of the text, please help us improve our model by 
-          adding your text with correct label to our database. Was the predicted label correct?
+          adding your text with correct label to our database. <strong>Was the predicted label correct?</strong>
         </p>
+        <p></p>
+
         <form method="POST" action="insert_label">
           <textarea style="display: none" type='text' name='text' rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           <textarea style="display: none" type='text' name='label' rows="5">{% if context %}{{context['label']}}{% endif %}</textarea>
-          <button type="submit" name="insert_label_button" value="correct" class="btn btn-success" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>
-          <button type="submit" name="insert_label_button" value="incorrect" class="btn btn-danger" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Incorrect</button>
+          <button type="submit" name="insert_label_button" value="correct" class="btn btn-outline-success" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>
+          <button type="submit" name="insert_label_button" value="incorrect" class="btn btn-outline-danger" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Incorrect</button>
         </form>
         <p></p>
         <p class="lead" id="gratitude"></p>

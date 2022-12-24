@@ -11,6 +11,11 @@ services:
     runtime: nvidia
     environment:
       CUDA_VISIBLE_DEVICES: 1
+      MYSQL_HOST: 0.0.0.0
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234567890
+      MYSQL_DB: flask
+      MYSQL_PORT: 5060
     volumes:
       - .:/machine-text-clf
     command: bash -c "gunicorn --bind 0.0.0.0:5020 app:app --timeout 15000 --reload"

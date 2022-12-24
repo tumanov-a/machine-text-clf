@@ -53,7 +53,7 @@
             </ul>
           </div>
         </div>
-        <form method="POST" action="predict_label">
+        <form method="POST" action="label">
           <div class="form-group">
             <textarea class="form-control" id="text" type='text' name='text' placeholder="Write or copy your text here" rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           </div>
@@ -69,14 +69,14 @@
           adding your text with correct label to our database. <strong>Was the predicted label correct?</strong>
         </p>
         <p></p>
-        <form method="POST" action="insert_label">
+        <form method="POST" action="new_text">
           <textarea style="display: none" type='text' name='text' rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           <textarea style="display: none" type='text' name='label' rows="5">{% if context %}{{context['label']}}{% endif %}</textarea>
-          <button type="submit" name="insert_label_button" value="correct" class="btn btn-outline-success" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Correct</button>
-          <button type="submit" name="insert_label_button" value="incorrect" class="btn btn-outline-danger" onclick='document.getElementById("gratitude").innerHTML="Thank you for your contribution!"'>Incorrect</button>
+          <button type="submit" name="insert_label_button" value="correct" class="btn btn-outline-success">Correct</button>
+          <button type="submit" name="insert_label_button" value="incorrect" class="btn btn-outline-danger">Incorrect</button>
         </form>
         <p></p>
-        <p class="lead" id="gratitude"></p>
+        <p class="lead" id="gratitude">{% if new_text_response %}<b>{{new_text_response['text']}}</b> with label <b>{{new_text_response['label']}}</b> added to our database!<br><br>Thank you for your contribution!{% endif %}</p>
       </div>
       <hr class="featurette-divider">
 

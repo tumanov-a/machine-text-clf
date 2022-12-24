@@ -39,6 +39,7 @@
     <main class="container">
       <div class="bg-light p-5 rounded">
         <h1>Try it yourself!</h1>
+        <p></p>
         <h4>Get our model's prediction on your text.</h4>
         <p class="lead">If you don't have any generated text, you can generate it on the <a target="blank" href="https://russiannlp.github.io/rugpt-demo/">link</a>.</p>
         <p class="lead">Write or copy your text in the Input form below and click "Generate label".</p>
@@ -62,13 +63,12 @@
         <p></p>
         {% if context %}
         <p class="lead" id="here">Predicted label: <b>{{context['label']}}</b></p>
-        <p class="lead" id="here">Predicted prob: <b>{{context['prob']}}</b></p>
+        <p class="lead" id="here">Probability: <b>{{context['prob']}}</b></p>
         {% endif %}
         <p class="lead">If you know the actual origin of the text, please help us improve our model by 
           adding your text with correct label to our database. <strong>Was the predicted label correct?</strong>
         </p>
         <p></p>
-
         <form method="POST" action="insert_label">
           <textarea style="display: none" type='text' name='text' rows="5">{% if context %}{{context['text']}}{% endif %}</textarea>
           <textarea style="display: none" type='text' name='label' rows="5">{% if context %}{{context['label']}}{% endif %}</textarea>
